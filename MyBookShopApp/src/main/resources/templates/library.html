@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" , xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/style.css}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <title>Библиотека</title>
+</head>
+<body>
+    <header>
+        <div class="header__logo"><p>Литрофил</p></div>
+        <nav>
+            <div class="topnav" id="myTopnav">
+                <a href="/">ДОМОЙ</a>
+                <a href="/books">БИБЛИОТЕКА</a>
+                <a href="search">ПОИСК</a>
+                <a href="about">О НАС</a>
+                <a href="#" id="menu" class="icon">&#9776;</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="main__welcome">
+            <h1><span class= "orange_style">БИБЛИОТЕКА</span></h1>
+            <p>скачивайте и удаляйте</p>
+        </div>
+        
+        <div>
+        <div class="search__book">
+            <div class="book">
+                <div class="about__leftbook">
+                    <img class="book-photo" src="">
+                </div>
+                <div class="about__rightbook" th:each="book : ${books}">
+                    <table>
+                        <tr>
+                            <td>
+                                <h1 th:text="${book.name}"></h1>
+                            </td>
+                        </tr>
+                        <form>
+                            <li th:text="${book.author}"></li>
+                            <li th:text="${book.year}"></li>
+                            <li th:text="${book.description}"></li>
+                            <li th:text="${book.point}"></li>
+                            <li><a th:href="${book.getFile()}">Скачать</a></li>
+                            </form>
+                        </form>
+                        <div th:if="${userState == 'admin'}">
+                            <td>
+                                <form th:action="@{'/remove/' + ${book.id}}" class="delete__button" method="post">
+                                    <button class="btn" type="submit">X</button>
+                                </form>
+                            </td>
+                        </div>
+                    </table>
+                </div>
+            </div>
+            <div th:if="${userState == 'admin'}">
+                <form th:action="@{/add}" th:object="${book}" method="post">
+                    <input th:field="*{name}" value="Имя книги" type="text" name="regname" id="regname">
+                    <input th:field="*{year}" value="Год выпуска" type="text" name="regname" id="regname">
+                    <input th:field="*{author}" value="Автора" type="text" name="regname" id="regname">
+                    <input th:field="*{description}" value="Описание" type="text" name="regname" id="regname">
+                    <input th:field="*{point}" value="Баллы" type="text" name="regname" id="regname">
+                    <input th:field="*{file}" value="Ссылка на файл" type="text" name="regname" id="regname">
+                    <div><input type="submit" value="Добавить книгу"/></div>
+                </form>
+            </div>
+            <div th:if="${userState == 'user'}">
+            </div>
+            <div th:if="${userState == ''}">
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

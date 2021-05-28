@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" , xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="header__logo"><p>Литрофил</p></div>
+    <nav>
+        <div class="topnav" id="myTopnav">
+            <a href="/">ДОМОЙ</a>
+            <a href="profile">ПРОФИЛЬ</a>
+            <a href="library">БИБЛИОТЕКА</a>
+            <a href="search">ПОИСК</a>
+            <a href="about">О НАС</a>
+            <a href="#" id="menu" class="icon">&#9776;</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="main__welcome">
+        <h1>Добавление <span class= "orange_style">Профиля</span></h1>
+        <form action="addProfile" method="post">
+            <input type="text" name="firstname" placeholder="Введите имя">
+            <input type="text" name="surname" placeholder="Введите фамилию">
+            <button type="submit"></button>
+        </form>
+    </div>
+
+</main>
+
+<footer>
+    <div class="wrapper">
+        <div class="social">
+            <a href="https://vk.com/slavakhil"><img th:src="@{/img/vk.png}" alt="vk"></a>
+            <a href="https://instagram.com/_slxkh"><img th:src="@{/img/instagram.png}" alt="instagram"></a>
+            <a href="https://t.me/noneedtruth"><img th:src="@{/img/telegram.png}" alt="telegram"></a>
+        </div>
+    </div>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>

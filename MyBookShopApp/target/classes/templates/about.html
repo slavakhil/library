@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" , xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"/>
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/style.css}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header__logo"><p>Литрофил</p></div>
+        <nav>
+            <div class="topnav" id="myTopnav">
+                <a href="/">ДОМОЙ</a>
+
+                <a href="/books">БИБЛИОТЕКА</a>
+                <a href="search">ПОИСК</a>
+                <a href="about">О НАС</a>
+                <a href="#" id="menu" class="icon">&#9776;</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main__welcome">
+            <h1><span class= "orange_style">О НАС</span></h1>
+            <p>информация о разработчиках</p>
+        </div>
+
+        <div class="main__team">
+            <div class="wrapper"></div>
+                <h1>НАША КОМАНДА</h1>
+                <div class="line"></div>
+                <div class="team__cards">
+                    <div class="card">
+                        <img class="photo" src="img/alex.jpg">
+                        <h4 class="name">Алексей Зарипов</h4>
+                        <p class="position">Бэкенд-разработчик</p>
+                        <p class="about__position">Студент ТУСУРа. Разрабатывает всё, что скрыто внутри сайта: от нажатия кнопок до поиска книг</p>
+                    </div>
+                    <div class="card">
+                        <img class="photo" src="img/slava.jpg">
+                        <h4 class="name">Вячеслав Хиль</h4>
+                        <p class="position">Фронтенд-разработчик</p>
+                        <p class="about__position">Студент ТУСУРа. Разрабатывает всё, вы видите на экране: от дизайна до расположения текста</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </main>
+    <footer>
+        <div class="wrapper">
+            <div class="social">
+                <a href="https://vk.com/slavakhil"><img src="img/vk.png" alt="vk"></a>
+                <a href="https://instagram.com/_slxkh"><img src="img/instagram.png" alt="instagram"></a>
+                <a href="https://t.me/noneedtruth"><img src="img/telegram.png" alt="telegram"></a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

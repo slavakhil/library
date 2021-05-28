@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" , xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header__logo"><p>Литрофил</p></div>
+    </header>
+
+    <main>
+        <div class="registration">
+            <h1><span class= "orange_style">РЕГИСТРАЦИЯ</span></h1>
+
+            <form class="form-field" method="post" th:action="@{/registration}" th:object="${user}">
+                <label for="regname">Username</label>
+                <input th:field="*{username}" type="text" name="regname" id="regname">
+                <span class="spin"></span>
+                <label for="regpass">Password</label>
+                <input th:field="*{password}"type="password" name="regpass" id="regpass">
+                <span class="spin"></span>
+                <input type="submit" value="submit">
+            </form>
+        </div>
+        
+    </main>
+    
+    <footer>
+        <div class="wrapper">
+            <div class="social">
+                <a href="https://vk.com/slavakhil"><img src="img/vk.png" alt="vk"></a>
+                <a href="https://instagram.com/_slxkh"><img src="img/instagram.png" alt="instagram"></a>
+                <a href="https://telegram.com/noneedtruth"><img src="img/telegram.png" alt="telegram"></a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" , xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск</title>
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/style.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header__logo"><p>Литрофил</p></div>
+        <nav>
+            <div class="topnav" id="myTopnav">
+                <a href="/">ДОМОЙ</a>
+                <a href="/books">БИБЛИОТЕКА</a>
+                <a href="search">ПОИСК</a>
+                <a href="about">О НАС</a>
+                <a href="#" id="menu" class="icon">&#9776;</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="main__welcome">
+            <h1><span class= "orange_style">ПОИСК</span></h1>
+            <p>ищите и добавляйте книги</p>
+        </div>
+        
+        <form method="post" th:action="@{/search/books}" th:object="${nameSearch}" class="search__button">
+            <input th:field="*{name}"type="text" placeholder="Искать здесь...">
+            <input type="submit" class="search__btn" placeholder="Найти">
+          </form>
+        <div class="search__book">
+            
+            <div class="book">
+                <div class="about__rightbook">
+                    <table th:each="book : ${booksFind}">
+                        <h1 th:text="${book.name}"></h1>
+                        <li  th:text="${book.author}"></li>
+                        <li th:text="${book.year}"></li>
+                        <li th:text="${book.description}"></li>
+                        <li th:text="${book.point}"></li>
+                        <li><a th:href="${book.getFile()}">Скачать</a></li>
+                    </table>
+                </div>
+            </div>
+        </div>    
+    </main>
+</body>
+</html>

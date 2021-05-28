@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" , xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header__logo"><p>Литрофил</p></div>
+        
+    </header>
+
+    <main>
+        <div class="authorization">
+            <h1><span class= "orange_style">Авторизация</span></h1>
+            <form class="form-field" th:action="@{/auth}" th:object="${userAuth}" method="post">
+                <input th:field="*{username}" type="text" name="regname" id="regname">
+                <input th:field="*{password}"type="password" name="regpass" id="regpass">
+                <div><input type="submit" value="Sign In"/></div>
+            </form>
+            <h3><span class= "orange_style">Нет аккаунта? <a class="a__color" href="registration">Зарегистрироваться</a></span></h3>
+        </div>
+        
+    </main>
+    
+    <footer>
+        <div class="wrapper">
+            <div class="social">
+                <a href="https://vk.com/slavakhil"><img src="img/vk.png" alt="vk"></a>
+                <a href="https://instagram.com/_slxkh"><img src="img/instagram.png" alt="instagram"></a>
+                <a href="https://telegram.com/noneedtruth"><img src="img/telegram.png" alt="telegram"></a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

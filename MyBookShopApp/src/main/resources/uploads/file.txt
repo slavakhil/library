@@ -1,0 +1,24 @@
+@PostMapping(value = "/uploadFile")
+    public String uploadFile(@RequestParam("file") MultipartFile file) throws Exception {
+        Logger.getLogger(LibraryController.class.getName()).info("POST: uploadFile is start working");
+        String name = file.getOriginalFilename();
+
+        /*if(file.getOriginalFilename().contains("pdf")||file.getOriginalFilename().contains("doc")||file.getOriginalFilename().contains("fb2")){
+            return "redirect:/library/books";
+        }*/
+        Logger.getLogger(LibraryController.class.getName()).info("uploads file has name: " + name);
+        byte bytes[] = file.getBytes();
+        //create dir
+        File dir = new File("D:\\BookShop\\MyBookShopApp\\src\\main\\resources\\uploads");
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        //create catalog
+
+        File serverFile = new File(dir.getAbsolutePath());
+        BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
+        stream.write(bytes);
+        stream.close();
+
+        return "redirect:/library/books";
+    }
